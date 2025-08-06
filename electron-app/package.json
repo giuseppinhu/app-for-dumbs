@@ -1,0 +1,35 @@
+{
+  "name": "imagefx-electron",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-api": "cd ../api && npm run build",
+    "dist": "npm run build-api && electron-builder",
+    "package": "electron-packager . electron-app --platform=win32 --arch=x64 --icon=icon.ico --overwrite"
+  },
+  "build": {
+    "appId": "com.imagefx.app",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "../api/dist/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "electron-packager": "^17.1.2",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "jszip": "^3.10.1"
+  }
+}

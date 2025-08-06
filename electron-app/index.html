@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css">
+    <title>Aplicativo para bagres</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">Packager Images IA for dubs</h1>
+    </header>
+    <main  class="container">
+        <div class="form">
+            <H4>POR FAVOR DIGITE O QUE DESEJA AQUI SENHOR:</H4>
+            <div class="input-area">
+                <label for="auth">Token</label>
+                <input class="input" type="text" id="auth" name="auth" placeholder="">
+            </div>
+            <div class="input-area">
+                <label for="prompt">Prompt</label>
+                <textarea class="input" id="prompt" name="prompt" placeholder="faça um jacaré no estilo studio ghibi"></textarea>
+            </div>
+            <div class="input-area">
+                <label for="count">Max Images</label>
+                <input class="input" type="number" id="count" min="1" value="1" name="count" style="width: 100px; display: block;">
+            </div>
+            <button onclick="gerar()" class="button">Dale Marcio</button>
+        </div>
+
+        <div id="frontRes" class="frontRes"></div>
+    </main>
+    <script src="renderer.js"></script>
+</body>
+</html>
