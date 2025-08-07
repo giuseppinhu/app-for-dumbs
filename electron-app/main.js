@@ -6,8 +6,7 @@ const path = require("path");
 const JSZip = require("jszip");
 const fs = require("fs");
 
-
-let apiProcess;
+let apiProcess
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -24,10 +23,10 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  const apiPath = path.join(__dirname, "../api/src/server/server.js");
+  const apiPath = path.join(__dirname, "/server/server.js");
 
   apiProcess = spawn("node", [apiPath], {
-    cwd: path.join(__dirname, "../api"),
+    cwd: path.join(__dirname, "/dist"),
     shell: true,
     detached: false
   });
@@ -45,10 +44,9 @@ app.whenReady().then(() => {
 
 app.on("will-quit", () => {
   if (apiProcess) {
-    apiProcess.kill();
+    apiProcess.kill();  
   }
 });
-
 
 // Donwload and Zip Images
 

@@ -11,7 +11,7 @@ async function gerar() {
 
   frontRes.style.display = 'block'
   frontRes.innerHTML = `<p>Gerando imagens...</p><br /><img class="gif" src="https://media1.tenor.com/m/FfYjdjpr3bgAAAAd/homer-the-simpsons.gif" alt="Homer GIF">`;
-
+  
   try {
     const res = await fetch("http://localhost:8080/image/generate", {
       method: "POST",
@@ -20,7 +20,7 @@ async function gerar() {
       },
       body: JSON.stringify({ prompt, count, cookie })
     });
-
+    
     const data = await res.json();
 
     if (!res.ok) {
@@ -35,11 +35,13 @@ async function gerar() {
       window.electronAPI.downloadImages(imageUrls);
     }
 
+    
   } catch (err) {
     frontRes.innerHTML = `<p style="color:red;">Erro: ${err.message}</p>`;
   }
 }
 
 window.electronAPI.onDownloadComplete(() => {
+  frontRes.style.display = 'none'
   alert('Download concluído!');
 })
